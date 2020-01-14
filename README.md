@@ -1,3 +1,5 @@
+![GitHub tag (latest by date)](https://img.shields.io/github/tag-date/jjcapellan/Phaser3-scrollinglayer.svg)
+![GitHub license](https://img.shields.io/github/license/jjcapellan/Phaser3-scrollinglayer.svg)
 # Phser3-ScrollingLayer
 Class to get parallax effects using [Phaser 3](https://github.com/photonstorm/phaser).  
 This class avoids the use of tilesprites, instead uses blitters.  
