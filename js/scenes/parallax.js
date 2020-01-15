@@ -30,16 +30,12 @@ class Parallax extends Phaser.Scene {
   }
 
   generateScrollingLayers(){
-    this.layer6 = new ScrollingLayer(this, this.height - this.getTextureHeight('layer06_Rocks'), -10, 2, 'atlas','layer06_Rocks');
-    this.layer5 = new ScrollingLayer(this, this.height - this.getTextureHeight('layer05_Hills'), -50, 2, 'atlas','layer05_Hills');
-    this.layer4 = new ScrollingLayer(this, 0, -90, 2, 'atlas','layer04_Clouds');
-    this.layer3 = new ScrollingLayer(this, this.height - this.getTextureHeight('layer03_Hills_Castle'), -130, 2, 'atlas','layer03_Hills_Castle');
-    this.layer2 = new ScrollingLayer(this, this.height - this.getTextureHeight('layer02_Trees_rocks'), -170, 2, 'atlas','layer02_Trees_rocks');
-    this.layer1 = new ScrollingLayer(this, this.height - this.getTextureHeight('layer01_Ground'), -240, 2, 'atlas','layer01_Ground');
-  }
-
-  getTextureHeight(frame) {
-    return this.textures.getFrame('atlas',frame).height;
+    this.layer6 = new ScrollingLayer(this, -10, 'atlas', {frame: 'layer06_Rocks'});
+    this.layer5 = new ScrollingLayer(this, -50, 'atlas',{frame: 'layer05_Hills'});
+    this.layer4 = new ScrollingLayer(this, -90, 'atlas',{frame: 'layer04_Clouds', y: 0});
+    this.layer3 = new ScrollingLayer(this, -130, 'atlas', {frame: 'layer03_Hills_Castle'});
+    this.layer2 = new ScrollingLayer(this, -170, 'atlas',{frame:'layer02_Trees_rocks'});
+    this.layer1 = new ScrollingLayer(this, -240, 'atlas',{frame: 'layer01_Ground'});
   }
 
 }

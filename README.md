@@ -25,13 +25,14 @@ Example:
     // In the create() function
 create(){
     this.layer1 = new ScrollingLayer(
-        this,         // Phaser.Scene
-        0,            // Position y. ScrollingLayer objects allways have as origin (0,0)
-        -20,          // Horizontal speed in pixels/second
-        2,            // Horizontal overlap in pixels. Prevents empty spaces between images.
-        'texture',    // Key of the texture stored in cache.
-        'layer1'      // Optional frame of the texture.
-         );
+        this,                   // Phaser.Scene
+        -20,                    // Horizontal speed in pixels/second
+        'textureKey',           // Key of the texture stored in cache
+        {
+            y: 0,               // (Optional) Y position. By default, texture is positioned at bottom.
+            overlap: 2,         // (Optional) Horizontal overlap in pixels (default 1). Prevents empty spaces between images.
+            frame: 'frameKey'   // (Optional) Frame key.
+        }
 }
 
     // In the update() function
