@@ -8,13 +8,13 @@ Used in: [Flappy Tours 2](https://jjcapellan.github.io/flappytours2/)
 ## Installation
 ### Browser
 There are two alternatives:
-* Download the file [scrollinglayer.min.js](https://cdn.jsdelivr.net/gh/jjcapellan/Phaser3-scrollinglayer@2.0.1/dist/scrollinglayer.min.js) to your proyect folder and add a reference in your html:
+* Download the file [scrollinglayer.min.js](https://cdn.jsdelivr.net/gh/jjcapellan/Phaser3-scrollinglayer@2.0.2/dist/scrollinglayer.min.js) to your proyect folder and add a reference in your html:
 ```html
 <script src = "scrollinglayer.min.js"></script>
 ```  
 * Link to the cdn:
 ```html
-<script src = "https://cdn.jsdelivr.net/gh/jjcapellan/Phaser3-scrollinglayer@2.0.1/dist/scrollinglayer.min.js"></script>
+<script src = "https://cdn.jsdelivr.net/gh/jjcapellan/Phaser3-scrollinglayer@2.0.2/dist/scrollinglayer.min.js"></script>
 ```  
 **Important**: the class is exposed as **ScrollingLayer**
 ### From NPM
