@@ -1,0 +1,6 @@
+demo/
+node_modules/
+src/
+scripts/
+index.html
+tsconfig.json

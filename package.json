@@ -1,0 +1,32 @@
+{
+  "name": "phaser3-scrollinglayer",
+  "version": "2.0.1",
+  "description": "This package uses Phaser 3 to get parallax effect",
+  "source": "src/index.ts",
+  "main": "dist/scrollinglayer.cjs.js",
+  "module": "dist/scrollinglayer.esm.js",
+  "browser": "dist/scrollinglayer.min.js",
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjcapellan/Phaser3-scrollinglayer.git"
+  },
+  "scripts": {
+		"build": "node scripts/build.js",
+    "postbuild": "tsc --emitDeclarationOnly --declaration --outDir dist"
+	},
+  "keywords": [
+    "phaser",
+    "phaser3",
+    "scroll",
+    "parallax"
+  ],
+  "author": "Juan Jose Capellan",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.19.10",
+    "phaser": "^3.70.0",
+    "typescript": "^5.3.3"
+  }
+}
