@@ -27,7 +27,7 @@ import ScrollingLayer from 'phaser3-scrollinglayer/dist/scrollinglayer.esm.js';
 ```
 **CommonJS** module:
 ```js
-const ScrollingLayer = Require('phaser3-scrollinglayer/dist/scrollinglayer.cjs.js');
+const ScrollingLayer = require('phaser3-scrollinglayer/dist/scrollinglayer.cjs.js');
 ```
 
 
