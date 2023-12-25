@@ -37,11 +37,17 @@ class ScrollingLayer {
   update(delta) {
     this.img1.x += this.getDistance(this.speed, delta);
     this.img2.x += this.getDistance(this.speed, delta);
-    if (this.img1.x < -this.width) {
+    if (this.speed < 0 && this.img1.x < -this.width) {
       this.img1.x = this.width + this.img2.x - this.overlap;
     }
-    if (this.img2.x < -this.width) {
+    if (this.speed < 0 && this.img2.x < -this.width) {
       this.img2.x = this.width + this.img1.x - this.overlap;
+    }
+    if (this.speed > 0 && this.img1.x > this.width) {
+      this.img1.x = -this.width + this.img2.x + this.overlap;
+    }
+    if (this.speed > 0 && this.img2.x > this.width) {
+      this.img2.x = -this.width + this.img1.x + this.overlap;
     }
   }
 }

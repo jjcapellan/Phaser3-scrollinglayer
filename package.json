@@ -1,6 +1,6 @@
 {
   "name": "phaser3-scrollinglayer",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "This package uses Phaser 3 to get parallax effect",
   "source": "src/index.ts",
   "main": "dist/scrollinglayer.cjs.js",
