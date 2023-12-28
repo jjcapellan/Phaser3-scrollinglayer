@@ -54,6 +54,10 @@ export default class ScrollingLayer {
         this.origin = Phaser.Math.Clamp(origin, 0, 1);
     }
 
+    setOverlap(overlap: number){
+        this.overlap = Math.max(0, overlap);
+    }
+
     setY(y: number) {
         this.y = y;
         this.blitter.y = y - this.origin * this.height;
