@@ -1,14 +1,14 @@
 function runGame() {
   var config = {
     type: Phaser.CANVAS,
-    width: 960,
-    height: 540,
+    width: 640,
+    height: 360,
     parent: 'game',
-    backgroundColor: 0x000000,
+    backgroundColor: 0xcbdbfc,
     scale: {
-      mode: Phaser.Scale.FIT,
       autoCenter: Phaser.Scale.CENTER_BOTH
     },
+    zoom: 2,
     scene: [Parallax]
   };
 

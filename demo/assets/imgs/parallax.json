@@ -1,0 +1,29 @@
+{ "frames": {
+   "Sun-0": {
+    "frame": { "x": 0, "y": 0, "w": 55, "h": 55 }
+   },
+   "Builds3-0": {
+    "frame": { "x": 0, "y": 56, "w": 640, "h": 65 }
+   },
+   "Builds2-0": {
+    "frame": { "x": 0, "y": 122, "w": 640, "h": 107 }
+   },
+   "Builds1-0": {
+    "frame": { "x": 0, "y": 230, "w": 640, "h": 88 }
+   },
+   "Rain-0": {
+    "frame": { "x": 0, "y": 319, "w": 631, "h": 360 }
+   },
+   "Front-0": {
+    "frame": { "x": 0, "y": 680, "w": 640, "h": 45 }
+   }
+ },
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.3.2-x64",
+  "image": "parallax.png",
+  "format": "I8",
+  "size": { "w": 640, "h": 725 },
+  "scale": "1"
+ }
+}

@@ -8,11 +8,11 @@ class Parallax extends Phaser.Scene {
   }
 
   preload() {
-    this.load.atlas('atlas', 'demo/assets/imgs/spritesheet_low.png', 'demo/assets/imgs/sprites_low.json');
+    this.load.atlas('atlas', 'demo/assets/imgs/parallax.png', 'demo/assets/imgs/parallax.json');
   }
 
   create() {
-    this.add.image(0, 0, 'atlas', 'layer07_Sky').setOrigin(0, 0);
+    this.add.image(this.scale.width * 0.66, this.scale.height * 0.66, 'atlas', 'Sun-0');
     this.generateScrollingLayers();
   }
 
@@ -25,17 +25,14 @@ class Parallax extends Phaser.Scene {
     this.layer5.update(delta);
     this.layer4.update(delta);
     this.layer3.update(delta);
-    this.layer2.update(delta);
-    this.layer1.update(delta);
   }
 
   generateScrollingLayers() {
-    this.layer6 = new ScrollingLayer(this, -10, 'atlas', { frame: 'layer06_Rocks' });
-    this.layer5 = new ScrollingLayer(this, -50, 'atlas', { frame: 'layer05_Hills' });
-    this.layer4 = new ScrollingLayer(this, -90, 'atlas', { frame: 'layer04_Clouds', y: 0 });
-    this.layer3 = new ScrollingLayer(this, -130, 'atlas', { frame: 'layer03_Hills_Castle' });
-    this.layer2 = new ScrollingLayer(this, -170, 'atlas', { frame: 'layer02_Trees_rocks' });
-    this.layer1 = new ScrollingLayer(this, -240, 'atlas', { frame: 'layer01_Ground' });
+    let bottom = this.scale.height;
+    this.layer6 = new ScrollingLayer(this, -10, 'atlas', { frame: 'Builds3-0', y: bottom - 64 - 60});
+    this.layer5 = new ScrollingLayer(this, -50, 'atlas', { frame: 'Builds2-0', y: bottom - 106 - 10});
+    this.layer4 = new ScrollingLayer(this, -90, 'atlas', { frame: 'Builds1-0', y: bottom - 84 -10});
+    this.layer3 = new ScrollingLayer(this, -130, 'atlas', { frame: 'Front-0'});
   }
 
 }
