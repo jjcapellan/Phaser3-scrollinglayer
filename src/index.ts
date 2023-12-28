@@ -11,6 +11,7 @@ export default class ScrollingLayer {
 
     width: number;
     height: number;
+    origin: number;
     blitter: Phaser.GameObjects.Blitter;
     img1: Phaser.GameObjects.Bob;
     img2: Phaser.GameObjects.Bob;
@@ -36,6 +37,7 @@ export default class ScrollingLayer {
 
         this.width = this.scene.textures.getFrame(this.texture, this.frame).width;
         this.height = this.scene.textures.getFrame(this.texture, this.frame).height;
+        this.origin = 0;
         this.y = options.y || this.setYbottom();
 
         this.blitter = this.scene.add.blitter(0, this.y, this.texture, this.frame);
