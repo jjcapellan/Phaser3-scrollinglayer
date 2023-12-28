@@ -38,7 +38,7 @@ export default class ScrollingLayer {
         this.width = this.scene.textures.getFrame(this.texture, this.frame).width;
         this.height = this.scene.textures.getFrame(this.texture, this.frame).height;
         this.origin = 0;
-        this.y = options.y || this.setYbottom();
+        this.y = options.y || scene.game.config.height as number - this.height;
 
         this.blitter = this.scene.add.blitter(0, this.y, this.texture, this.frame);
         this.img1 = this.blitter.create(0, 0);
@@ -48,10 +48,6 @@ export default class ScrollingLayer {
 
     getDistance(speed: number, deltaTime: number): number {
         return (deltaTime * speed) / 1000;
-    }
-
-    setYbottom(): number {
-        return this.scene.game.config.height as number - this.height;
     }
 
     /**
