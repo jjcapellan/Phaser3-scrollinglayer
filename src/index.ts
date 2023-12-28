@@ -50,6 +50,10 @@ export default class ScrollingLayer {
         return (deltaTime * speed) / 1000;
     }
 
+    setOrigin(origin: number){
+        this.origin = Phaser.Math.Clamp(origin, 0, 1);
+    }
+
     setY(y: number) {
         this.y = y;
         this.blitter.y = y - this.origin * this.height;
