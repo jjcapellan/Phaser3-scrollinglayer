@@ -74,6 +74,12 @@ export default class ScrollingLayer {
         );
     }
 
+    setAlpha(alpha: number) {
+        alpha = Math.max(0, alpha);
+        this.blitter.setAlpha(alpha);
+        return this;
+    }
+
     setVertical() {
         this._isV = 1;
         this._isH = 0;
