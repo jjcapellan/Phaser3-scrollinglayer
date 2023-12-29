@@ -21,18 +21,16 @@ export default class ScrollingLayer {
      * @param scene     
      * @param speed - Horizontal speed in pixels/second.    
      * @param texture - Key of the texture stored in cache.
-     * @param [options]
-     * @param [options.frame] - Optional frame of the texture.
-     * @param [options.overlap = 0] - Horizontal overlap in pixels (default 1). Prevents empty spaces between images.
+     * @param [frame] - Optional frame of the texture.
      * @memberof ScrollingLayer
      */
-    constructor(scene: Phaser.Scene, position: number, speed: number, texture: string, options: Options) {
+    constructor(scene: Phaser.Scene, position: number, speed: number, texture: string, frame?: string) {
         this.scene = scene;
         this.speed = speed;
         this.texture = texture;
-        this.frame = options.frame;
+        this.frame = frame;
 
-        this.overlap = options.overlap || 1;
+        this.overlap = 1;
 
         this.width = this.scene.textures.getFrame(this.texture, this.frame).width;
         this.height = this.scene.textures.getFrame(this.texture, this.frame).height;
@@ -87,11 +85,6 @@ export default class ScrollingLayer {
         }
     }
 
-}
-
-type Options = {
-    frame?: string,
-    overlap?: number
 }
 
 // @ts-ignore
