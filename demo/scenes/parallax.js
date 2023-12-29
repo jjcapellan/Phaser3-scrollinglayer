@@ -30,16 +30,16 @@ class Parallax extends Phaser.Scene {
   generateScrollingLayers() {
     const factor = 2;
     let bottom = this.scale.height;
-    this.layer6 = new ScrollingLayer(this, -20 * factor, 'atlas', { frame: 'Builds3-0'})
+    this.layer6 = new ScrollingLayer(this, 0, -20 * factor, 'atlas', { frame: 'Builds3-0'})
     .setOrigin(1)
     .setY(bottom - 60);
-    this.layer5 = new ScrollingLayer(this, -40 * factor, 'atlas', { frame: 'Builds2-0'})
+    this.layer5 = new ScrollingLayer(this, 0, -40 * factor, 'atlas', { frame: 'Builds2-0'})
     .setOrigin(0)
     .setY(bottom - 106 - 10);
-    this.layer4 = new ScrollingLayer(this, -80 * factor, 'atlas', { frame: 'Builds1-0'})
+    this.layer4 = new ScrollingLayer(this, 0, -80 * factor, 'atlas', { frame: 'Builds1-0'})
     .setOrigin(1)
     .setY(bottom - 10);
-    this.layer3 = new ScrollingLayer(this, -160 * factor, 'atlas', { frame: 'Front-0'});
+    this.layer3 = new ScrollingLayer(this, 0, -160 * factor, 'atlas', { frame: 'Front-0'})
+    .setOrigin(1);
   }
-
 }

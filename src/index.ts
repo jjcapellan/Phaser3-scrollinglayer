@@ -6,7 +6,7 @@ export default class ScrollingLayer {
     speed: number;
     texture: string;
     frame: string | undefined;
-    y: number;
+    position: number;
     overlap: number;
 
     width: number;
@@ -23,11 +23,10 @@ export default class ScrollingLayer {
      * @param texture - Key of the texture stored in cache.
      * @param [options]
      * @param [options.frame] - Optional frame of the texture.
-     * @param [options.y = 0] - vertical position in pixels. By default the texture is positioned at bottom.
      * @param [options.overlap = 0] - Horizontal overlap in pixels (default 1). Prevents empty spaces between images.
      * @memberof ScrollingLayer
      */
-    constructor(scene: Phaser.Scene, speed: number, texture: string, options: Options) {
+    constructor(scene: Phaser.Scene, position: number, speed: number, texture: string, options: Options) {
         this.scene = scene;
         this.speed = speed;
         this.texture = texture;
@@ -38,9 +37,9 @@ export default class ScrollingLayer {
         this.width = this.scene.textures.getFrame(this.texture, this.frame).width;
         this.height = this.scene.textures.getFrame(this.texture, this.frame).height;
         this.origin = 0;
-        this.y = options.y || scene.game.config.height as number - this.height;
+        this.position = position;
 
-        this.blitter = this.scene.add.blitter(0, this.y, this.texture, this.frame);
+        this.blitter = this.scene.add.blitter(0, this.position, this.texture, this.frame);
         this.img1 = this.blitter.create(0, 0);
         this.img2 = this.blitter.create(this.width - this.overlap, 0);
 
@@ -60,9 +59,9 @@ export default class ScrollingLayer {
         return this;
     }
 
-    setY(y: number): ScrollingLayer {
-        this.y = y;
-        this.blitter.y = y - this.origin * this.height;
+    setPosition(position: number): ScrollingLayer {
+        this.position = position;
+        this.blitter.y = position - this.origin * this.height;
         return this;
     }
 
@@ -92,7 +91,6 @@ export default class ScrollingLayer {
 
 type Options = {
     frame?: string,
-    y?: number,
     overlap?: number
 }
 
