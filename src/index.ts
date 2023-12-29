@@ -50,17 +50,20 @@ export default class ScrollingLayer {
         return (deltaTime * speed) / 1000;
     }
 
-    setOrigin(origin: number){
+    setOrigin(origin: number): ScrollingLayer {
         this.origin = Phaser.Math.Clamp(origin, 0, 1);
+        return this;
     }
 
-    setOverlap(overlap: number){
+    setOverlap(overlap: number): ScrollingLayer {
         this.overlap = Math.max(0, overlap);
+        return this;
     }
 
-    setY(y: number) {
+    setY(y: number): ScrollingLayer {
         this.y = y;
         this.blitter.y = y - this.origin * this.height;
+        return this;
     }
 
     /**
