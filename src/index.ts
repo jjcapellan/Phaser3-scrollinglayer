@@ -59,7 +59,7 @@ export default class ScrollingLayer {
 
     }
 
-    getDistance(speed: number, deltaTime: number): number {
+    _getDistance(speed: number, deltaTime: number): number {
         return (deltaTime * speed) / 1000;
     }
 
@@ -153,7 +153,7 @@ export default class ScrollingLayer {
      * @param delta - Duration of last game step in miliseconds
      */
     update(delta: number) {
-        const distance = this.getDistance(this.speed, delta);
+        const distance = this._getDistance(this.speed, delta);
         if (this._isH) {
             this.img1.x += distance;
             this.img2.x += distance;
