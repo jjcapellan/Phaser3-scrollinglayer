@@ -8,6 +8,7 @@ export default class ScrollingLayer {
     overlap: number;
     width: number;
     height: number;
+    origin: number;
     blitter: Phaser.GameObjects.Blitter;
     img1: Phaser.GameObjects.Bob;
     img2: Phaser.GameObjects.Bob;
@@ -24,7 +25,9 @@ export default class ScrollingLayer {
      */
     constructor(scene: Phaser.Scene, speed: number, texture: string, options: Options);
     getDistance(speed: number, deltaTime: number): number;
-    setYbottom(): number;
+    setOrigin(origin: number): ScrollingLayer;
+    setOverlap(overlap: number): ScrollingLayer;
+    setY(y: number): ScrollingLayer;
     /**
      * Updates the x position.
      * @param delta - Duration of last game step in miliseconds

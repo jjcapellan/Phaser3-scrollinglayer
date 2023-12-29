@@ -1,7 +1,9 @@
 "use strict";
+var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __export = (target, all) => {
   for (var name in all)
@@ -15,12 +17,21 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var src_exports = {};
 __export(src_exports, {
   default: () => ScrollingLayer
 });
 module.exports = __toCommonJS(src_exports);
+var import_phaser = __toESM(require("phaser"), 1);
 class ScrollingLayer {
   /**
    *Creates an instance of ScrollingLayer.
@@ -41,7 +52,8 @@ class ScrollingLayer {
     this.overlap = options.overlap || 1;
     this.width = this.scene.textures.getFrame(this.texture, this.frame).width;
     this.height = this.scene.textures.getFrame(this.texture, this.frame).height;
-    this.y = options.y || this.setYbottom();
+    this.origin = 0;
+    this.y = options.y || scene.game.config.height - this.height;
     this.blitter = this.scene.add.blitter(0, this.y, this.texture, this.frame);
     this.img1 = this.blitter.create(0, 0);
     this.img2 = this.blitter.create(this.width - this.overlap, 0);
@@ -49,8 +61,18 @@ class ScrollingLayer {
   getDistance(speed, deltaTime) {
     return deltaTime * speed / 1e3;
   }
-  setYbottom() {
-    return this.scene.game.config.height - this.height;
+  setOrigin(origin) {
+    this.origin = import_phaser.default.Math.Clamp(origin, 0, 1);
+    return this;
+  }
+  setOverlap(overlap) {
+    this.overlap = Math.max(0, overlap);
+    return this;
+  }
+  setY(y) {
+    this.y = y;
+    this.blitter.y = y - this.origin * this.height;
+    return this;
   }
   /**
    * Updates the x position.
