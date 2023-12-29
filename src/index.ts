@@ -21,11 +21,12 @@ export default class ScrollingLayer {
 
     /**
      *Creates an instance of ScrollingLayer.
-     * @param scene     
-     * @param speed - Horizontal speed in pixels/second.    
+     * @param scene
+     * @param position - Position in the cross axis (y axis for horizontal layer
+     * and x axis for vertical layer)
+     * @param speed - Speed in pixels/second.    
      * @param texture - Key of the texture stored in cache.
-     * @param [frame] - Optional frame of the texture.
-     * @memberof ScrollingLayer
+     * @param [frame] - Frame of the texture. (Optional)
      */
     constructor(scene: Phaser.Scene, position: number, speed: number, texture: string, frame?: string) {
         this.scene = scene;
@@ -74,13 +75,22 @@ export default class ScrollingLayer {
         );
     }
 
-    setAlpha(alpha: number) {
+    /**
+     * Sets the opacity
+     * @param alpha Number between 0 (transparent) and 1 (opaque)
+     * @returns ScrollingLayer
+     */
+    setAlpha(alpha: number): ScrollingLayer {
         alpha = Math.max(0, alpha);
         this.blitter.setAlpha(alpha);
         return this;
     }
 
-    setVertical() {
+    /**
+     * Sets layer orientation to vertical
+     * @returns ScrollingLayer
+     */
+    setVertical(): ScrollingLayer {
         this._isV = 1;
         this._isH = 0;
         this._axis = 'v';
@@ -88,7 +98,11 @@ export default class ScrollingLayer {
         return this;
     }
 
-    setHorizontal() {
+    /**
+     * Sets layer orientation to horizontal (default)
+     * @returns ScrollingLayer
+     */
+    setHorizontal(): ScrollingLayer {
         this._isV = 0;
         this._isH = 1;
         this._axis = 'x';
@@ -96,17 +110,34 @@ export default class ScrollingLayer {
         return this;
     }
 
+    /**
+     * Sets the layer origin in the cross axis (x for horizontal and y for vertical layer)
+     * @param origin Number between 0 ( left/top ) and 1 ( right/bottom )
+     * @returns ScrollingLayer
+     */
     setOrigin(origin: number): ScrollingLayer {
         this.origin = Phaser.Math.Clamp(origin, 0, 1);
         this.setPosition(this.position);
         return this;
     }
 
+    /**
+     * Sets overlap property.
+     * @param overlap Overlap in pixels (default 1). Prevents empty spaces between images. 
+     * For semitransparent layers is recommended set value to 0.
+     * @returns ScrollingLayer
+     */
     setOverlap(overlap: number): ScrollingLayer {
         this.overlap = Math.max(0, overlap);
         return this;
     }
 
+    /**
+     * Sets the position
+     * @param position Position in the cross axis (y axis for horizontal layer
+     * and x axis for vertical layer)
+     * @returns ScrollingLayer
+     */
     setPosition(position: number): ScrollingLayer {
         this.position = position;
         if (this._isH) {
@@ -118,9 +149,8 @@ export default class ScrollingLayer {
     }
 
     /**
-     * Updates the x position.
+     * Updates the layer position.
      * @param delta - Duration of last game step in miliseconds
-     * @memberof ScrollingLayer
      */
     update(delta: number) {
         const distance = this.getDistance(this.speed, delta);
