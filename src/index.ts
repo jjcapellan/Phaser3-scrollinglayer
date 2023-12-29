@@ -49,6 +49,7 @@ export default class ScrollingLayer {
 
     setOrigin(origin: number): ScrollingLayer {
         this.origin = Phaser.Math.Clamp(origin, 0, 1);
+        this.setPosition(this.position);
         return this;
     }
 
