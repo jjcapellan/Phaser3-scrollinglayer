@@ -176,6 +176,7 @@ export default class ScrollingLayer {
                 this._img2.x = -this.width + this._img1.x + this.overlap;
                 return;
             }
+            return;
         }
 
         this._img1.y += distance;
