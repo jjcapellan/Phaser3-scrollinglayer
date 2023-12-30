@@ -1,5 +1,5 @@
 /// <reference types="../node_modules/phaser/types/phaser.d.ts" />
-import LayerFactory from "./layers";
+import LayerFactory from "./factory";
 
 // Hot reloading esbuild
 // @ts-ignore
