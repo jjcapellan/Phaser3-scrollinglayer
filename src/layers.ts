@@ -5,6 +5,7 @@ export default class Layers extends Phaser.GameObjects.Blitter {
 
     _hLayers: LayerData[] = [];
     _vLayers: LayerData[] = [];
+    _handlers: Layer[] = [];
 
     constructor(scene: Phaser.Scene, texture: string) {
         super(scene);
@@ -35,6 +36,7 @@ export default class Layers extends Phaser.GameObjects.Blitter {
         }
         this._hLayers.push(data);
         let layer = new Layer(data);
+        this._handlers.push(layer);
         return layer;
     }
 
@@ -59,6 +61,7 @@ export default class Layers extends Phaser.GameObjects.Blitter {
         }
         this._vLayers.push(data);
         let layer = new Layer(data);
+        this._handlers.push(layer);
         return layer;
     }
 
@@ -114,6 +117,13 @@ export default class Layers extends Phaser.GameObjects.Blitter {
                 }
             }
         );
+    } // End preUpdate()
+
+    destroy(fromScene?: boolean | undefined): void {
+        this._handlers = null!;
+        this._hLayers = null!;
+        this._vLayers = null!;
+        super.destroy(fromScene);
     }
 }
 
