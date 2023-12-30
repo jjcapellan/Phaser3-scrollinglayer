@@ -1,23 +1,25 @@
-import Phaser from "phaser";
+/// <reference types="../node_modules/phaser/types/phaser.d.ts" />
 
 export default class ScrollingLayer {
 
+    // Public properties
     scene: Phaser.Scene;
     speed: number;
     texture: string;
     frame: string | undefined;
     position: number;
     overlap: number;
-
     width: number;
     height: number;
     origin: number;
+    blitter: Phaser.GameObjects.Blitter;
+
+    // Private properties
     _isH: number;
     _isV: number;
-    _axis: string;
-    blitter: Phaser.GameObjects.Blitter;
-    img1: Phaser.GameObjects.Bob;
-    img2: Phaser.GameObjects.Bob;
+    _axis: string;    
+    _img1: Phaser.GameObjects.Bob;
+    _img2: Phaser.GameObjects.Bob;
 
     /**
      *Creates an instance of ScrollingLayer.
@@ -30,19 +32,20 @@ export default class ScrollingLayer {
      */
     constructor(scene: Phaser.Scene, position: number, speed: number, texture: string, frame?: string) {
         this.scene = scene;
+        this.position = position;
         this.speed = speed;
         this.texture = texture;
         this.frame = frame;
 
+        // Default values
         this.overlap = 1;
         this._isH = 1;
         this._isV = 0;
         this._axis = 'x';
+        this.origin = 0;
 
         this.width = this.scene.textures.getFrame(this.texture, this.frame).width;
         this.height = this.scene.textures.getFrame(this.texture, this.frame).height;
-        this.origin = 0;
-        this.position = position;
 
         this.blitter = this.scene.add.blitter(
             this._isV * this.position + 0,
@@ -51,8 +54,8 @@ export default class ScrollingLayer {
             this.frame
         );
 
-        this.img1 = this.blitter.create(0, 0);
-        this.img2 = this.blitter.create(
+        this._img1 = this.blitter.create(0, 0);
+        this._img2 = this.blitter.create(
             (this.width - this.overlap) * this._isH + 0,
             (this.height - this.overlap) * this._isV + 0
         );
@@ -68,8 +71,8 @@ export default class ScrollingLayer {
             this._isV * this.position + 0,
             this._isH * this.position + 0,
         );
-        this.img1.setPosition(0, 0);
-        this.img2.setPosition(
+        this._img1.setPosition(0, 0);
+        this._img2.setPosition(
             (this.width - this.overlap) * this._isH + 0,
             (this.height - this.overlap) * this._isV + 0
         );
@@ -155,36 +158,42 @@ export default class ScrollingLayer {
     update(delta: number) {
         const distance = this._getDistance(this.speed, delta);
         if (this._isH) {
-            this.img1.x += distance;
-            this.img2.x += distance;
-            if (this.speed < 0 && this.img1.x < -this.width) {
-                this.img1.x = this.width + this.img2.x - this.overlap;
+            this._img1.x += distance;
+            this._img2.x += distance;
+            if (this.speed < 0 && this._img1.x < -this.width) {
+                this._img1.x = this.width + this._img2.x - this.overlap;
             }
-            if (this.speed < 0 && this.img2.x < -this.width) {
-                this.img2.x = this.width + this.img1.x - this.overlap;
+            if (this.speed < 0 && this._img2.x < -this.width) {
+                this._img2.x = this.width + this._img1.x - this.overlap;
             }
-            if (this.speed > 0 && this.img1.x > this.width) {
-                this.img1.x = -this.width + this.img2.x + this.overlap;
+            /*if(this.speed < 0){
+                let max = this.width - this.overlap;
+                let min = -this.width + this.overlap;
+                this._img1.x = Phaser.Math.Wrap(this._img1.x, min, max);
+                this._img2.x = Phaser.Math.Wrap(this._img2.x, min, max);
+            }*/
+            if (this.speed > 0 && this._img1.x > this.width) {
+                this._img1.x = -this.width + this._img2.x + this.overlap;
             }
-            if (this.speed > 0 && this.img2.x > this.width) {
-                this.img2.x = -this.width + this.img1.x + this.overlap;
+            if (this.speed > 0 && this._img2.x > this.width) {
+                this._img2.x = -this.width + this._img1.x + this.overlap;
             }
             return;
         }
 
-        this.img1.y += distance;
-        this.img2.y += distance;
-        if (this.speed < 0 && this.img1.y < -this.height) {
-            this.img1.y = this.height + this.img2.y - this.overlap;
+        this._img1.y += distance;
+        this._img2.y += distance;
+        if (this.speed < 0 && this._img1.y < -this.height) {
+            this._img1.y = this.height + this._img2.y - this.overlap;
         }
-        if (this.speed < 0 && this.img2.y < -this.height) {
-            this.img2.y = this.height + this.img1.y - this.overlap;
+        if (this.speed < 0 && this._img2.y < -this.height) {
+            this._img2.y = this.height + this._img1.y - this.overlap;
         }
-        if (this.speed > 0 && this.img1.y > this.height) {
-            this.img1.y = -this.height + this.img2.y + this.overlap;
+        if (this.speed > 0 && this._img1.y > this.height) {
+            this._img1.y = -this.height + this._img2.y + this.overlap;
         }
-        if (this.speed > 0 && this.img2.y > this.height) {
-            this.img2.y = -this.height + this.img1.y + this.overlap;
+        if (this.speed > 0 && this._img2.y > this.height) {
+            this._img2.y = -this.height + this._img1.y + this.overlap;
         }
     }
 
