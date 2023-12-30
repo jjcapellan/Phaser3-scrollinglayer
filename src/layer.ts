@@ -40,6 +40,11 @@ export class Layer {
         return this;
     }
 
+    setSpeed(speed: number) {
+        this.data.speed = speed;
+        return this;
+    }
+
     setVisible(visible: boolean): Layer {
         this.data.img1.setVisible(visible);
         this.data.img2.setVisible(visible);
