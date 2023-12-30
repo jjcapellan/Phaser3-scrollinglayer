@@ -5,9 +5,6 @@ function runGame() {
     height: 360,
     parent: 'game',
     backgroundColor: 0xcbdbfc,
-    scale: {
-      autoCenter: Phaser.Scale.CENTER_BOTH
-    },
     zoom: 2,
     scene: [Parallax]
   };
