@@ -3,7 +3,7 @@ import LayerFactory from "./factory";
 
 // Hot reloading esbuild
 // @ts-ignore
-if (IS_DEV) {
+if (typeof IS_DEV == "boolean" && IS_DEV) {
     new EventSource("/esbuild").addEventListener("change", () => location.reload());
 }
 
