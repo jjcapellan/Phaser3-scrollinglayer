@@ -10,6 +10,7 @@ export default class LayerFactory extends Phaser.GameObjects.Blitter {
     _hLayers: LayerData[] = [];
     _vLayers: LayerData[] = [];
     _handlers: Layer[] = [];
+    VERSION:string = "3.0.0"
 
     constructor(scene: Phaser.Scene, texture: string) {
         super(scene);
