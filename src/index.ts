@@ -17,7 +17,7 @@ export default class ScrollingLayer {
     // Private properties
     _isH: number;
     _isV: number;
-    _axis: string;    
+    _axis: string;
     _img1: Phaser.GameObjects.Bob;
     _img2: Phaser.GameObjects.Bob;
 
@@ -162,35 +162,35 @@ export default class ScrollingLayer {
             this._img2.x += distance;
             if (this.speed < 0 && this._img1.x < -this.width) {
                 this._img1.x = this.width + this._img2.x - this.overlap;
+                return;
             }
             if (this.speed < 0 && this._img2.x < -this.width) {
                 this._img2.x = this.width + this._img1.x - this.overlap;
+                return;
             }
-            /*if(this.speed < 0){
-                let max = this.width - this.overlap;
-                let min = -this.width + this.overlap;
-                this._img1.x = Phaser.Math.Wrap(this._img1.x, min, max);
-                this._img2.x = Phaser.Math.Wrap(this._img2.x, min, max);
-            }*/
             if (this.speed > 0 && this._img1.x > this.width) {
                 this._img1.x = -this.width + this._img2.x + this.overlap;
+                return;
             }
             if (this.speed > 0 && this._img2.x > this.width) {
                 this._img2.x = -this.width + this._img1.x + this.overlap;
+                return;
             }
-            return;
         }
 
         this._img1.y += distance;
         this._img2.y += distance;
         if (this.speed < 0 && this._img1.y < -this.height) {
             this._img1.y = this.height + this._img2.y - this.overlap;
+            return;
         }
         if (this.speed < 0 && this._img2.y < -this.height) {
             this._img2.y = this.height + this._img1.y - this.overlap;
+            return;
         }
         if (this.speed > 0 && this._img1.y > this.height) {
             this._img1.y = -this.height + this._img2.y + this.overlap;
+            return;
         }
         if (this.speed > 0 && this._img2.y > this.height) {
             this._img2.y = -this.height + this._img1.y + this.overlap;
