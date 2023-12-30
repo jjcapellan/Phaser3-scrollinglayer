@@ -7,14 +7,14 @@
   "module": "dist/scrollinglayer.esm.js",
   "browser": "dist/scrollinglayer.min.js",
   "type": "module",
-  "types": "dist/index.d.ts",
+  "types": "dist/scrollinglayer.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jjcapellan/Phaser3-scrollinglayer.git"
   },
   "scripts": {
 		"build": "node scripts/build.js",
-    "postbuild": "tsc --emitDeclarationOnly --declaration --outDir dist",
+    "prebuild": "tsc --emitDeclarationOnly --declaration --outDir dist",
     "dev": "node scripts/dev.js"
 	},
   "keywords": [
