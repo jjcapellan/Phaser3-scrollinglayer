@@ -15,7 +15,14 @@ export default class Layers extends Phaser.GameObjects.Blitter {
 
     }
 
-    addHlayer(y: number, speed: number, frame: string) {
+    /**
+     * Creates a new horizontal layer.
+     * @param y     y position in pixels
+     * @param speed Velocity in pixels/second for x axis
+     * @param frame Frame to be rendered
+     * @returns     Instance of the new layer
+     */
+    addHlayer(y: number, speed: number, frame: string): Layer {
         let width = this.scene.textures.getFrame(this.texture.key, frame).width;
         let height = this.scene.textures.getFrame(this.texture.key, frame).height;
         let overlap = 1;
@@ -40,7 +47,14 @@ export default class Layers extends Phaser.GameObjects.Blitter {
         return layer;
     }
 
-    addVlayer(x: number, speed: number, frame: string) {
+    /**
+     * 
+     * @param x     x position in pixels
+     * @param speed Velocity in pixels/second for y axis
+     * @param frame Frame to be rendered
+     * @returns     Instance of the new layer
+     */
+    addVlayer(x: number, speed: number, frame: string): Layer {
         let width = this.scene.textures.getFrame(this.texture.key, frame).width;
         let height = this.scene.textures.getFrame(this.texture.key, frame).height;
         let overlap = 1;
@@ -119,6 +133,10 @@ export default class Layers extends Phaser.GameObjects.Blitter {
         );
     } // End preUpdate()
 
+    /**
+     * Removes a layer.
+     * @param layer Layer to be removed
+     */
     removeLayer(layer: Layer) {
         // Removes Bob objects
         layer.data.img1.destroy();
@@ -132,6 +150,10 @@ export default class Layers extends Phaser.GameObjects.Blitter {
         this._handlers.splice(this._handlers.indexOf(layer));
     }
 
+    /**
+     * Deletes all references to associated data and calls super.destroy().
+     * @param fromScene True if this Game Object is being destroyed by the Scene, false if not.
+     */
     destroy(fromScene?: boolean | undefined): void {
         this._handlers = null!;
         this._hLayers = null!;
