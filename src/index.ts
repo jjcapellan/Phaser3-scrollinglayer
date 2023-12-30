@@ -1,5 +1,5 @@
 /// <reference types="../node_modules/phaser/types/phaser.d.ts" />
-import Layers from "./layers";
+import LayerFactory from "./layers";
 
 // Hot reloading esbuild
 // @ts-ignore
@@ -7,10 +7,10 @@ if (IS_DEV) {
     new EventSource("/esbuild").addEventListener("change", () => location.reload());
 }
 
-export default Layers;
+export default LayerFactory;
 
 // @ts-ignore
 if (IS_BROWSER) {
     // @ts-ignore
-    window.Layers = Layers;
+    window.LayerFactory = LayerFactory;
 }

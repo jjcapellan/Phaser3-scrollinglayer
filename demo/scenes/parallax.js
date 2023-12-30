@@ -21,7 +21,7 @@ class Parallax extends Phaser.Scene {
     const factor = 2;
     let bottom = this.scale.height;
 
-    const layers = this.add.existing(new Layers(this, "atlas"));
+    const layers = this.add.existing(new LayerFactory(this, "atlas"));
 
     layers.addHlayer(0, -20 * factor, 'Builds3-0')
       .setOrigin(1)
@@ -31,23 +31,22 @@ class Parallax extends Phaser.Scene {
       .setOrigin(0)
       .setPosition(bottom - 106 - 10);
 
-    // let l = layers.addHlayer(0, 80 * factor, 'Builds1-0')
     let l = layers.addHlayer(0, -80 * factor, 'Builds1-0')
       .setOrigin(1)
-      .setPosition(bottom - 10);
+      .setPosition(bottom - 10);    
 
-    
+    // layers.addVlayer(0, -200, 'Rain-0') 
+    /*layers.addVlayer(0, 200, 'Rain-0')
+      .setAlpha(0.08);*/
+
+    layers.addHlayer(bottom, -160 * factor, "Front-0")
+      .setOrigin(1);
+
     // this.time.delayedCall(5000, () => { l.setVisible(false)});
     // this.time.delayedCall(5000, () => { layers.destroy()});
     // this.time.delayedCall(5000, () => { layers.destroy(true)});
     // this.time.delayedCall(5000, () => { layers.removeLayer(l); });
     // this.time.delayedCall(5000, () => { l.setSpeed(40)});
-
-    // layers.addVlayer(0, -200, 'Rain-0') 
-    layers.addVlayer(0, 200, 'Rain-0')
-      .setAlpha(0.08);
-
-    layers.addHlayer(bottom, -160 * factor, "Front-0")
-      .setOrigin(1);
+    
   }
 }

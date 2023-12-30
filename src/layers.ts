@@ -5,7 +5,7 @@ import { Layer, LayerData } from "./layer";
  * This class helps to make infinite scrolls and parallax efects.
  * Especially useful for endless runner-type and similar games.
  */
-export default class Layers extends Phaser.GameObjects.Blitter {
+export default class LayerFactory extends Phaser.GameObjects.Blitter {
 
     _hLayers: LayerData[] = [];
     _vLayers: LayerData[] = [];
