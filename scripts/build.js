@@ -9,8 +9,11 @@ await esbuild.build({
     format: "iife",
     minify: true,
     sourcemap: false,
-    define: {"IS_BROWSER": "true"},
-    outdir: ".",
+    define: {
+        "IS_BROWSER": "true",
+        "IS_DEV": "false"
+    },
+    outdir: "."
 });
 
 await esbuild.build({
@@ -20,8 +23,8 @@ await esbuild.build({
     bundle: false,
     platform: "neutral",
     format: "esm",
-    define: {"IS_BROWSER": "false"},
-    outdir: ".",
+    define: { "IS_BROWSER": "false" },
+    outdir: "."
 });
 
 await esbuild.build({
@@ -31,6 +34,6 @@ await esbuild.build({
     bundle: false,
     platform: "neutral",
     format: "cjs",
-    define: {"IS_BROWSER": "false"},
-    outdir: ".",
+    define: { "IS_BROWSER": "false" },
+    outdir: "."
 });

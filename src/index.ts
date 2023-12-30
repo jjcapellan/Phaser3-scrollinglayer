@@ -1,5 +1,11 @@
 /// <reference types="../node_modules/phaser/types/phaser.d.ts" />
 
+// Hot reloading esbuild
+// @ts-ignore
+if (IS_DEV) {
+    new EventSource("/esbuild").addEventListener("change", () => location.reload());
+}
+
 export default class ScrollingLayer {
 
     // Public properties
