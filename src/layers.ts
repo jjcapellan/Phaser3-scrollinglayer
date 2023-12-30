@@ -119,6 +119,19 @@ export default class Layers extends Phaser.GameObjects.Blitter {
         );
     } // End preUpdate()
 
+    removeLayer(layer: Layer) {
+        // Removes Bob objects
+        layer.data.img1.destroy();
+        layer.data.img2.destroy();
+
+        // Removes LayerData from array
+        let dataSrc = layer.data.isH ? this._hLayers : this._vLayers;
+        dataSrc.splice(dataSrc.indexOf(layer.data), 1);
+
+        // Removes Layer from array
+        this._handlers.splice(this._handlers.indexOf(layer));
+    }
+
     destroy(fromScene?: boolean | undefined): void {
         this._handlers = null!;
         this._hLayers = null!;
