@@ -1,15 +1,20 @@
 /// <reference types="../node_modules/phaser/types/phaser.d.ts" />
 import { Layer, LayerData } from "./layer";
-export default class Layers extends Phaser.GameObjects.Blitter {
+/**
+ * This class helps to make infinite scrolls and parallax efects.
+ * Especially useful for endless runner-type and similar games.
+ */
+export default class LayerFactory extends Phaser.GameObjects.Blitter {
     _hLayers: LayerData[];
     _vLayers: LayerData[];
     _handlers: Layer[];
+    VERSION: string;
     constructor(scene: Phaser.Scene, texture: string);
     /**
      * Creates a new horizontal layer.
      * @param y     y position in pixels
      * @param speed Velocity in pixels/second for x axis
-     * @param frame Frame to be rendered
+     * @param frame Frame to be rendered. Frame width must be at least viewport width.
      * @returns     Instance of the new layer
      */
     addHlayer(y: number, speed: number, frame: string): Layer;
@@ -17,7 +22,7 @@ export default class Layers extends Phaser.GameObjects.Blitter {
      *
      * @param x     x position in pixels
      * @param speed Velocity in pixels/second for y axis
-     * @param frame Frame to be rendered
+     * @param frame Frame to be rendered. Frame height must be at least viewport height.
      * @returns     Instance of the new layer
      */
     addVlayer(x: number, speed: number, frame: string): Layer;
