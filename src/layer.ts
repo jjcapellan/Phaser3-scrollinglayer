@@ -39,6 +39,12 @@ export class Layer {
         this.data.overlap = Math.max(0, overlap);
         return this;
     }
+
+    setVisible(visible: boolean): Layer {
+        this.data.img1.setVisible(visible);
+        this.data.img2.setVisible(visible);
+        return this;
+    }
 }
 
 export type LayerData = {
