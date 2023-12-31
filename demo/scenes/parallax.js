@@ -22,6 +22,7 @@ class Parallax extends Phaser.Scene {
     let bottom = this.scale.height;
 
     const layers = this.add.existing(new LayerFactory(this, "atlas"));
+    console.log("Scrollinglayer v" + layers.VERSION);
 
     layers.addHlayer(0, -20 * factor, 'Builds3-0')
       .setOrigin(1)
@@ -34,8 +35,7 @@ class Parallax extends Phaser.Scene {
     let l = layers.addHlayer(0, -80 * factor, 'Builds1-0')
       .setOrigin(1)
       .setPosition(bottom - 10);    
-
-    // layers.addVlayer(0, -200, 'Rain-0') 
+    
     /*layers.addVlayer(0, 200, 'Rain-0')
       .setAlpha(0.08);*/
 
