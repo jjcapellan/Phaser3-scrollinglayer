@@ -1,6 +1,6 @@
 {
   "name": "phaser3-scrollinglayer",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "This package creates infinite scrolls and parallax efects using Phaser 3",
   "source": "src/index.ts",
   "main": "dist/scrollinglayer.cjs.js",

@@ -8,13 +8,13 @@ Demo: https://jjcapellan.github.io/Phaser3-scrollinglayer/
 ## Installation
 ### Browser
 There are two alternatives:
-* Download the file [scrollinglayer.min.js](https://cdn.jsdelivr.net/gh/jjcapellan/Phaser3-scrollinglayer@3.0.0/dist/scrollinglayer.min.js) to your proyect folder and add a reference in your html:
+* Download the file [scrollinglayer.min.js](https://cdn.jsdelivr.net/gh/jjcapellan/Phaser3-scrollinglayer@3.0.1/dist/scrollinglayer.min.js) to your proyect folder and add a reference in your html:
 ```html
 <script src = "scrollinglayer.min.js"></script>
 ```  
 * Link to the cdn:
 ```html
-<script src = "https://cdn.jsdelivr.net/gh/jjcapellan/Phaser3-scrollinglayer@3.0.0/dist/scrollinglayer.min.js"></script>
+<script src = "https://cdn.jsdelivr.net/gh/jjcapellan/Phaser3-scrollinglayer@3.0.1/dist/scrollinglayer.min.js"></script>
 ```  
 **Important**: the package is exposed as **LayerFactory**
 ### From NPM
