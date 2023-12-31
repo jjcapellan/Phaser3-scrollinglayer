@@ -47,6 +47,7 @@ class Parallax extends Phaser.Scene {
     // this.time.delayedCall(5000, () => { layers.destroy(true)});
     // this.time.delayedCall(5000, () => { layers.removeLayer(l); });
     // this.time.delayedCall(5000, () => { l.setSpeed(40)});
+    // this.time.delayedCall(5000, () => { l.setFrame('Builds3-0')});
     
   }
 }
