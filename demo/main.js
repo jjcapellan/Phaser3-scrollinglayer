@@ -1,6 +1,6 @@
 function runGame() {
   var config = {
-    type: Phaser.CANVAS,
+    type: Phaser.AUTO,
     width: 640,
     height: 360,
     parent: "game",
