@@ -43,7 +43,7 @@ const lf = this.add.existing(new LayerFactory(this, "texture"));
    // ..
 }
 ```
-The purpose of the class LayerFactory is to create, update and destroy scroll layers.  
+The purpose of the class LayerFactory is to create, update and destroy scroll layers. This class extends the class *Phaser.GameObjects.Blitter*  
 
 Constructor:  
 * *new LayerFactory(scene: Phaser.Scene, texture: string)*
