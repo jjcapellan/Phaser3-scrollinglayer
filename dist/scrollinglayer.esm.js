@@ -61,7 +61,23 @@ var Layer = class {
    * @returns Instance of the layer
    */
   setOverlap(overlap) {
-    this.data.overlap = Math.max(0, overlap);
+    const d = this.data;
+    const img1 = d.img1;
+    const img2 = d.img2;
+    d.overlap = Math.max(0, overlap);
+    if (d.isH) {
+      if (img1.x < img2.x) {
+        img2.x = img1.x + d.width - d.overlap;
+        return this;
+      }
+      img2.x = img1.x - d.width + d.overlap;
+      return this;
+    }
+    if (img1.y < img2.y) {
+      img2.y = img1.y + d.height - d.overlap;
+      return this;
+    }
+    img2.y = img1.y - d.height + d.overlap;
     return this;
   }
   /**
