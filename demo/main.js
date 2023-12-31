@@ -3,7 +3,7 @@ function runGame() {
     type: Phaser.CANVAS,
     width: 640,
     height: 360,
-    parent: 'game',
+    parent: "game",
     backgroundColor: 0xcbdbfc,
     zoom: 2,
     scene: [Parallax]

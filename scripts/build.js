@@ -1,9 +1,9 @@
-import * as esbuild from 'esbuild';
-import fs from 'node:fs';
+import * as esbuild from "esbuild";
+import fs from "node:fs";
 
 await esbuild.build({
     entryPoints: [
-        { out: 'dist/scrollinglayer.min', in: 'src/index.ts' }
+        { out: "dist/scrollinglayer.min", in: "src/index.ts" }
     ],
     bundle: true,
     platform: "browser",
@@ -19,7 +19,7 @@ await esbuild.build({
 
 await esbuild.build({
     entryPoints: [
-        { out: 'dist/scrollinglayer.esm', in: 'src/index.ts' }
+        { out: "dist/scrollinglayer.esm", in: "src/index.ts" }
     ],
     bundle: true,
     platform: "neutral",
@@ -30,7 +30,7 @@ await esbuild.build({
 
 await esbuild.build({
     entryPoints: [
-        { out: 'dist/scrollinglayer.cjs', in: 'src/index.ts' }
+        { out: "dist/scrollinglayer.cjs", in: "src/index.ts" }
     ],
     bundle: true,
     platform: "neutral",
