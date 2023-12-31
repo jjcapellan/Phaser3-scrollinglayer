@@ -12,9 +12,15 @@ export declare class Layer {
     /**
      * Sets the opacity.
      * @param alpha Number between 0 (transparent) and 1 (opaque)
-     * @returns
+     * @returns Instance of the layer
      */
     setAlpha(alpha: number): Layer;
+    /**
+     * Sets the current frame used by the layer.
+     * @param frame The frame must be part of the Texture the parent LayerFactory is using.
+     * @returns Instance of the layer
+     */
+    setFrame(frame: string): Layer;
     /**
      * Sets the origin of the cross axis (y axis for horizontal layer and x axis for vertical layer).
      * @param origin Number between 0 (left/top) and 1 (right/bottom)

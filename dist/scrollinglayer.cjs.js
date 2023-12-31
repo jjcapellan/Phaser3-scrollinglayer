@@ -36,12 +36,22 @@ var Layer = class {
   /**
    * Sets the opacity.
    * @param alpha Number between 0 (transparent) and 1 (opaque) 
-   * @returns 
+   * @returns Instance of the layer
    */
   setAlpha(alpha) {
     alpha = Math.max(0, alpha);
     this.data.img1.setAlpha(alpha);
     this.data.img2.setAlpha(alpha);
+    return this;
+  }
+  /**
+   * Sets the current frame used by the layer.
+   * @param frame The frame must be part of the Texture the parent LayerFactory is using.
+   * @returns Instance of the layer
+   */
+  setFrame(frame) {
+    this.data.img1.setFrame(frame);
+    this.data.img2.setFrame(frame);
     return this;
   }
   /**
